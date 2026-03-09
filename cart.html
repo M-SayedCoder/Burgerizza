@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart — Burgerizza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/sidebar.css">
+  <link rel="stylesheet" href="./assets/css/cart.css">
+</head>
+<body>
+<header class="bzr-header">
+  <div class="container">
+    <a href="index.html" class="icon-btn"><i class="bi bi-arrow-left"></i></a>
+    <span class="bzr-logo" style="flex:1;text-align:center;">My Cart</span>
+    <div style="display:flex;gap:8px;align-items:center;"><label class="dark-toggle"><input type="checkbox" id="darkToggle"><div class="dark-toggle-slider"></div></label><button class="icon-btn hamburger-btn" id="sidebarToggle"><i class="bi bi-list"></i></button></div>
+  </div>
+</header>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-profile">
+      <div class="sidebar-avatar">🙂</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-name">John Doe</div>
+        <div class="sidebar-email">john@example.com</div>
+      </div>
+    </div>
+    <button class="icon-btn sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="sidebar-link"><i class="bi bi-house"></i><span>Home</span></a>
+    <a href="all-categories.html" class="sidebar-link"><i class="bi bi-grid-3x3-gap"></i><span>Browse Menu</span></a>
+    <a href="offers.html" class="sidebar-link"><i class="bi bi-tag"></i><span>Offers \&amp; Deals</span><span class="sidebar-badge">4</span></a>
+    <a href="order-history.html" class="sidebar-link"><i class="bi bi-clock-history"></i><span>My Orders</span></a>
+    <a href="wishlist.html" class="sidebar-link"><i class="bi bi-heart"></i><span>Wishlist</span></a>
+    <a href="order-tracking.html" class="sidebar-link"><i class="bi bi-geo-alt"></i><span>Track Order</span></a>
+    <div class="sidebar-divider"></div>
+    <a href="edit-profile.html" class="sidebar-link"><i class="bi bi-person"></i><span>Personal Info</span></a>
+    <a href="address.html" class="sidebar-link"><i class="bi bi-house-door"></i><span>Addresses</span></a>
+    <a href="checkout.html" class="sidebar-link"><i class="bi bi-credit-card"></i><span>Payment Methods</span></a>
+    <a href="reviews.html" class="sidebar-link"><i class="bi bi-star"></i><span>Reviews</span></a>
+    <a href="faqs.html" class="sidebar-link"><i class="bi bi-question-circle"></i><span>FAQs</span></a>
+    <div class="sidebar-divider"></div>
+    <a href="signup.html" class="sidebar-link sidebar-link-danger"><i class="bi bi-box-arrow-right"></i><span>Sign In / Sign Up</span></a>
+  </nav>
+</div>
+<div class="page-wrap">
+  <div class="cart-layout">
+    <div class="cart-main">
+      <div class="section-header">
+        <h2 class="section-title">Items</h2>
+        <button class="btn-ghost" id="clearCartBtn"><i class="bi bi-trash3"></i> Clear All</button>
+      </div>
+      <div class="promo-box">
+        <div class="promo-input-wrap">
+          <i class="bi bi-tag"></i>
+          <input type="text" class="bzr-input" id="promoInput" placeholder="Enter promo code (e.g. WELCOME40)">
+          <button class="btn-brand" id="applyPromo">Apply</button>
+        </div>
+        <div class="promo-badge" id="promoBadge" style="display:none;"></div>
+      </div>
+      <div id="cartItemsList"></div>
+      <div class="empty-state" id="emptyCart" style="display:none;">
+        <div class="empty-state-icon">🛒</div>
+        <div class="empty-state-title">Your cart is empty</div>
+        <p class="empty-state-text">Add some delicious items from our menu!</p>
+        <a href="index.html" class="btn-brand" style="margin-top:20px;">Browse Restaurants</a>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <div class="summary-card">
+        <div class="summary-title">Order Summary</div>
+        <div class="summary-row"><span>Subtotal</span><span id="summarySubtotal">$0.00</span></div>
+        <div class="summary-row" id="discountRow" style="display:none;color:var(--success);"><span>Discount</span><span id="summaryDiscount">-$0.00</span></div>
+        <div class="summary-row"><span>Delivery</span><span style="color:var(--success);">Free</span></div>
+        <div class="summary-divider"></div>
+        <div class="summary-row summary-total"><span>Total</span><span id="summaryTotal">$0.00</span></div>
+        <div class="delivery-box">
+          <div class="delivery-label"><i class="bi bi-geo-alt-fill"></i> Delivery to</div>
+          <div class="delivery-address">2118 Thornridge Cir. Syracuse <a href="address.html" class="change-link">Change</a></div>
+        </div>
+        <a href="checkout.html" class="btn-brand w-full" id="checkoutBtn"><i class="bi bi-bag-check"></i> Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="./assets/js/global.js"></script>
+<script src="./assets/js/sidebar.js"></script>
+<script src="./assets/js/cart.js"></script>
+<nav class="bottom-nav" style="display:none;">
+  <a href="index.html"><i class="bi bi-house"></i>Home</a>
+  <a href="all-categories.html"><i class="bi bi-grid-3x3-gap"></i>Menu</a>
+  <a href="offers.html"><i class="bi bi-tag"></i>Offers</a>
+  <a href="cart.html"><i class="bi bi-bag"></i>Cart<span class="bnav-badge cart-badge" style="display:none;">0</span></a>
+  <a href="menu.html"><i class="bi bi-person"></i>Profile</a>
+</nav>
+</body>
+</html>

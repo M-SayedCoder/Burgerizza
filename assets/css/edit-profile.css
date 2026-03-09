@@ -1,0 +1,26 @@
+/* ── Edit Profile ───────────────────────────────────────── */
+.profile-pic-section {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 28px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius-xl);
+  margin-bottom: 20px; gap: 12px;
+}
+.edit-avatar { font-size: 80px; }
+.edit-form {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-xl); padding: 24px;
+}
+.edit-field { margin-bottom: 16px; }
+.edit-label {
+  display: block; font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--text-tertiary); margin-bottom: 6px;
+}
+.w-full { width: 100%; display: flex; align-items: center; justify-content: center; }
+
+/* ── Edit Profile Responsive ─────────────────────────────── */
+@media (max-width: 479px) {
+  .auth-card, .edit-form { padding: 20px 16px; }
+  .profile-pic-section   { padding: 20px; }
+  .edit-avatar { font-size: 64px; }
+}

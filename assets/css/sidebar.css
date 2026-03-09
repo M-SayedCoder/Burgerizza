@@ -1,0 +1,112 @@
+/* ============================================================
+   Burgerizza — Sidebar (slides from LEFT)
+   ============================================================ */
+
+.hamburger-btn {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-md) !important;
+  font-size: 20px !important;
+  flex-shrink: 0;
+}
+
+/* Overlay */
+.sidebar-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2px);
+  z-index: 490;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.sidebar-overlay.active { opacity: 1; pointer-events: auto; }
+
+/* ── Sidebar panel — comes from LEFT ── */
+.sidebar {
+  position: fixed;
+  top: 0; left: -340px;          /* starts off-screen LEFT */
+  width: 300px; height: 100%;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  z-index: 500;
+  display: flex; flex-direction: column;
+  transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 8px 0 40px rgba(0,0,0,0.12);
+  overflow-y: auto;
+}
+.sidebar.open { left: 0; }       /* slides IN from left */
+
+/* Sidebar Header */
+.sidebar-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.sidebar-profile { display: flex; align-items: center; gap: 12px; }
+.sidebar-avatar {
+  width: 52px; height: 52px;
+  background: var(--brand-soft);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; flex-shrink: 0;
+}
+.sidebar-name  { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--text-primary); }
+.sidebar-email { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+.sidebar-close { flex-shrink: 0; margin-top: 2px; }
+
+/* Nav Links */
+.sidebar-nav { padding: 12px 12px 32px; flex: 1; }
+.sidebar-link {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  font-size: 14px; font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  margin-bottom: 2px;
+}
+.sidebar-link i { font-size: 18px; width: 22px; text-align: center; flex-shrink: 0; }
+.sidebar-link:hover { background: var(--surface-2); color: var(--text-primary); }
+.sidebar-link.active { background: var(--brand-soft); color: var(--brand); font-weight: 600; }
+.sidebar-link.active i { color: var(--brand); }
+
+.sidebar-badge {
+  margin-left: auto;
+  background: var(--brand); color: #fff;
+  font-size: 10px; font-weight: 700;
+  padding: 2px 7px; border-radius: var(--radius-full);
+  min-width: 20px; text-align: center;
+}
+.sidebar-divider { height: 1px; background: var(--border); margin: 10px 4px; }
+.sidebar-link-danger { color: var(--danger) !important; }
+.sidebar-link-danger i { color: var(--danger) !important; }
+.sidebar-link-danger:hover { background: #FEF2F2 !important; }
+
+/* Hide old mobile nav */
+.mobile-nav { display: none !important; }
+.mobile-menu-btn { display: none !important; }
+
+/* Entry animation — items slide from LEFT */
+.sidebar.open .sidebar-link {
+  animation: slideInLeft 0.28s ease forwards;
+  opacity: 0;
+}
+.sidebar.open .sidebar-link:nth-child(1)  { animation-delay: 0.05s; }
+.sidebar.open .sidebar-link:nth-child(2)  { animation-delay: 0.08s; }
+.sidebar.open .sidebar-link:nth-child(3)  { animation-delay: 0.11s; }
+.sidebar.open .sidebar-link:nth-child(4)  { animation-delay: 0.14s; }
+.sidebar.open .sidebar-link:nth-child(5)  { animation-delay: 0.17s; }
+.sidebar.open .sidebar-link:nth-child(6)  { animation-delay: 0.20s; }
+.sidebar.open .sidebar-link:nth-child(8)  { animation-delay: 0.23s; }
+.sidebar.open .sidebar-link:nth-child(9)  { animation-delay: 0.26s; }
+.sidebar.open .sidebar-link:nth-child(10) { animation-delay: 0.29s; }
+.sidebar.open .sidebar-link:nth-child(11) { animation-delay: 0.32s; }
+.sidebar.open .sidebar-link:nth-child(12) { animation-delay: 0.35s; }
+.sidebar.open .sidebar-link:nth-child(14) { animation-delay: 0.38s; }
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (max-width: 480px) { .sidebar { width: 280px; } }

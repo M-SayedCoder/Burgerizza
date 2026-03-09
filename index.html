@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burgerizza — Food Delivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/sidebar.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────── -->
+<header class="bzr-header">
+  <div class="container">
+    <!-- Left: hamburger + logo -->
+    <div class="header-left">
+      <button class="icon-btn hamburger-btn" id="sidebarToggle" title="Menu">
+        <i class="bi bi-list"></i>
+      </button>
+      <a href="index.html" class="bzr-logo">Burger<span>izza</span></a>
+    </div>
+
+    <!-- Center: search -->
+    <div class="header-search">
+      <i class="bi bi-search"></i>
+      <input type="text" placeholder="Search dishes, restaurants…" id="headerSearch">
+    </div>
+
+    <!-- Right: actions + login -->
+    <div class="header-actions">
+      <label class="dark-toggle" title="Toggle Dark Mode">
+        <input type="checkbox" id="darkToggle">
+        <div class="dark-toggle-slider"></div>
+      </label>
+      <a href="wishlist.html" class="icon-btn" title="Wishlist"><i class="bi bi-heart"></i></a>
+      <a href="cart.html" class="icon-btn" style="position:relative;" title="Cart">
+        <i class="bi bi-bag"></i>
+        <span class="cart-badge badge-brand" style="display:none;position:absolute;top:-6px;right:-6px;">0</span>
+      </a>
+      <a href="signup.html" class="btn-brand">Login / Sign In</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── Sidebar Overlay ──────────────────────────────────── -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ── Sidebar ──────────────────────────────────────────── -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-profile">
+      <div class="sidebar-avatar">🙂</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-name">John Doe</div>
+        <div class="sidebar-email">john@example.com</div>
+      </div>
+    </div>
+    <button class="icon-btn sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="index.html" class="sidebar-link active"><i class="bi bi-house"></i><span>Home</span></a>
+    <a href="all-categories.html" class="sidebar-link"><i class="bi bi-grid-3x3-gap"></i><span>Browse Menu</span></a>
+    <a href="offers.html" class="sidebar-link"><i class="bi bi-tag"></i><span>Offers & Deals</span><span class="sidebar-badge">4</span></a>
+    <a href="order-history.html" class="sidebar-link"><i class="bi bi-clock-history"></i><span>My Orders</span></a>
+    <a href="wishlist.html" class="sidebar-link"><i class="bi bi-heart"></i><span>Wishlist</span></a>
+    <a href="order-tracking.html" class="sidebar-link"><i class="bi bi-geo-alt"></i><span>Track Order</span></a>
+
+    <div class="sidebar-divider"></div>
+
+    <a href="edit-profile.html" class="sidebar-link"><i class="bi bi-person"></i><span>Personal Info</span></a>
+    <a href="address.html" class="sidebar-link"><i class="bi bi-house-door"></i><span>Addresses</span></a>
+    <a href="checkout.html" class="sidebar-link"><i class="bi bi-credit-card"></i><span>Payment Methods</span></a>
+    <a href="reviews.html" class="sidebar-link"><i class="bi bi-star"></i><span>Reviews</span></a>
+    <a href="faqs.html" class="sidebar-link"><i class="bi bi-question-circle"></i><span>FAQs</span></a>
+
+    <div class="sidebar-divider"></div>
+
+    <a href="signup.html" class="sidebar-link sidebar-link-danger"><i class="bi bi-box-arrow-right"></i><span>Sign In / Sign Up</span></a>
+  </nav>
+</div>
+
+<!-- ── Hero ─────────────────────────────────────────────── -->
+<section class="hero-section">
+  <div class="page-wrap">
+    <div class="hero-content fade-up">
+      <div class="hero-greeting">Good afternoon! 👋</div>
+      <h1 class="hero-title">What are you<br><span>craving today?</span></h1>
+      <p class="hero-sub">Order from the best restaurants near you, delivered hot &amp; fast.</p>
+    </div>
+  </div>
+  <div class="hero-blob"></div>
+</section>
+
+<!-- ── Categories ───────────────────────────────────────── -->
+<section class="page-wrap" style="padding-top:0;">
+  <div class="section-header fade-up delay-1">
+    <span class="section-title">Categories</span>
+    <a href="all-categories.html" class="section-link">See all <i class="bi bi-arrow-right"></i></a>
+  </div>
+  <div class="categories-scroll fade-up delay-2">
+    <div class="cat-chip active" data-cat="all"><img src="./assets/images/all.jpg" alt="All">All</div>
+    <div class="cat-chip" data-cat="burger"><img src="./assets/images/Burger.avif" alt="Burger">Burger</div>
+    <div class="cat-chip" data-cat="pizza"><img src="./assets/images/Pizza.jpg" alt="Pizza">Pizza</div>
+    <div class="cat-chip" data-cat="pasta"><img src="./assets/images/pasta.webp" alt="Pasta">Pasta</div>
+    <div class="cat-chip" data-cat="hotdog"><img src="./assets/images/Hotdog.jpg" alt="Hot Dog">Hot Dog</div>
+  </div>
+</section>
+
+<!-- ── Offers Banner ────────────────────────────────────── -->
+<section class="page-wrap" style="padding-top:0;">
+  <a href="offers.html" class="offers-banner fade-up delay-2">
+    <div class="offers-banner-text">
+      <div class="offers-tag">🔥 Limited Time</div>
+      <div class="offers-title">Up to 40% OFF on first order</div>
+      <div class="offers-sub">Use code <strong>WELCOME40</strong></div>
+    </div>
+    <div class="offers-banner-art">🍔</div>
+  </a>
+</section>
+
+<!-- ── Restaurants ──────────────────────────────────────── -->
+<section class="page-wrap" style="padding-top:0;">
+  <div class="section-header fade-up delay-3">
+    <span class="section-title">Open Near You</span>
+    <a href="all-categories.html" class="section-link">See all <i class="bi bi-arrow-right"></i></a>
+  </div>
+  <div class="restaurants-grid fade-up delay-3">
+    <a href="details.html" class="rest-card">
+      <div class="rest-card-img">
+        <img src="./assets/images/Rose Garden Restaurant.jpeg" alt="Rose Garden">
+        <span class="rest-card-badge">🟢 Open</span>
+      </div>
+      <div class="rest-card-body">
+        <div class="rest-card-name">Rose Garden Restaurant</div>
+        <div class="rest-card-tags">Burger · Chicken · Wings</div>
+        <div class="rest-card-meta">
+          <span class="rating"><i class="bi bi-star-fill"></i> 4.7</span>
+          <span><i class="bi bi-truck"></i> Free</span>
+          <span><i class="bi bi-clock"></i> 20 min</span>
+        </div>
+      </div>
+    </a>
+    <a href="details.html" class="rest-card">
+      <div class="rest-card-img">
+        <img src="./assets/images/Italiano Pizza House.jpg" alt="Italiano">
+        <span class="rest-card-badge">🟢 Open</span>
+      </div>
+      <div class="rest-card-body">
+        <div class="rest-card-name">Italiano Pizza House</div>
+        <div class="rest-card-tags">Pizza · Pasta · Drinks</div>
+        <div class="rest-card-meta">
+          <span class="rating"><i class="bi bi-star-fill"></i> 4.5</span>
+          <span><i class="bi bi-truck"></i> Free</span>
+          <span><i class="bi bi-clock"></i> 25 min</span>
+        </div>
+      </div>
+    </a>
+    <a href="details.html" class="rest-card">
+      <div class="rest-card-img">
+        <img src="./assets/images/Pasta House.jpeg" alt="Pasta House">
+        <span class="rest-card-badge">🟢 Open</span>
+      </div>
+      <div class="rest-card-body">
+        <div class="rest-card-name">Pasta House</div>
+        <div class="rest-card-tags">Pasta · Alfredo · Italian</div>
+        <div class="rest-card-meta">
+          <span class="rating"><i class="bi bi-star-fill"></i> 4.8</span>
+          <span><i class="bi bi-truck"></i> Free</span>
+          <span><i class="bi bi-clock"></i> 22 min</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────── -->
+<footer class="bzr-footer">
+  <div class="page-wrap" style="padding-top:0;padding-bottom:0;">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Burger<span>izza</span></div>
+        <p class="footer-desc">Delicious food delivered to your doorstep.</p>
+        <div class="footer-social">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="all-categories.html">Menu</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Account</div>
+        <ul class="footer-links">
+          <li><a href="signup.html">Log In / Sign Up</a></li>
+          <li><a href="order-history.html">Orders</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="edit-profile.html">Profile</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Newsletter</div>
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">Get the latest offers.</p>
+        <div class="footer-newsletter">
+          <input type="email" class="bzr-input" placeholder="Email address" style="border-radius:var(--radius-full);">
+          <button class="btn-brand" style="padding:12px 16px;border-radius:var(--radius-full);"><i class="bi bi-send-fill"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Burgerizza. All rights reserved.</span>
+      <div style="display:flex;gap:20px;"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+<script src="./assets/js/global.js"></script>
+<script src="./assets/js/sidebar.js"></script>
+<script src="./assets/js/index.js"></script>
+<nav class="bottom-nav" style="display:none;">
+  <a href="index.html"><i class="bi bi-house"></i>Home</a>
+  <a href="all-categories.html"><i class="bi bi-grid-3x3-gap"></i>Menu</a>
+  <a href="offers.html"><i class="bi bi-tag"></i>Offers</a>
+  <a href="cart.html"><i class="bi bi-bag"></i>Cart<span class="bnav-badge cart-badge" style="display:none;">0</span></a>
+  <a href="menu.html"><i class="bi bi-person"></i>Profile</a>
+</nav>
+</body>
+</html>

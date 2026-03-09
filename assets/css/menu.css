@@ -1,0 +1,46 @@
+/* ── Profile / Menu Page ────────────────────────────────── */
+.profile-banner {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+.profile-avatar { font-size: 52px; }
+.profile-name   { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+.profile-email  { font-size: 13px; color: var(--text-tertiary); margin-top: 2px; }
+
+.menu-group { margin-bottom: 16px; }
+.menu-group-label {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-tertiary); padding: 0 4px;
+  margin-bottom: 8px;
+}
+.menu-item {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  margin-bottom: 6px;
+  font-size: 15px; font-weight: 500;
+  color: var(--text-primary);
+  transition: all var(--transition);
+}
+.menu-item:hover { border-color: var(--brand); background: var(--brand-soft); }
+.menu-item-icon {
+  width: 40px; height: 40px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.menu-chevron { margin-left: auto; color: var(--text-tertiary); font-size: 14px; }
+.menu-item-danger:hover { border-color: var(--danger); background: #FEF2F2; color: var(--danger); }
+
+/* ── Profile Menu Responsive ─────────────────────────────── */
+@media (max-width: 479px) {
+  .profile-banner { padding: 16px; }
+  .profile-avatar { font-size: 40px; }
+  .menu-item      { padding: 12px 14px; font-size: 14px; }
+}

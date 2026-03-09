@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Restaurants — Burgerizza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/sidebar.css">
+  <link rel="stylesheet" href="./assets/css/all-categories.css">
+</head>
+<body>
+<header class="bzr-header">
+  <div class="container">
+    <a href="index.html" class="icon-btn"><i class="bi bi-arrow-left"></i></a>
+    <div class="header-search" style="flex:1;max-width:none;">
+      <i class="bi bi-search"></i>
+      <input type="text" placeholder="Search restaurants…" id="searchInput">
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <label class="dark-toggle"><input type="checkbox" id="darkToggle"><div class="dark-toggle-slider"></div></label><button class="icon-btn hamburger-btn" id="sidebarToggle"><i class="bi bi-list"></i></button>
+      <a href="cart.html" class="icon-btn" style="position:relative;">
+        <i class="bi bi-bag"></i>
+        <span class="cart-badge badge-brand" style="display:none;position:absolute;top:-6px;right:-6px;">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-profile">
+      <div class="sidebar-avatar">🙂</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-name">John Doe</div>
+        <div class="sidebar-email">john@example.com</div>
+      </div>
+    </div>
+    <button class="icon-btn sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="sidebar-link"><i class="bi bi-house"></i><span>Home</span></a>
+    <a href="all-categories.html" class="sidebar-link"><i class="bi bi-grid-3x3-gap"></i><span>Browse Menu</span></a>
+    <a href="offers.html" class="sidebar-link"><i class="bi bi-tag"></i><span>Offers \&amp; Deals</span><span class="sidebar-badge">4</span></a>
+    <a href="order-history.html" class="sidebar-link"><i class="bi bi-clock-history"></i><span>My Orders</span></a>
+    <a href="wishlist.html" class="sidebar-link"><i class="bi bi-heart"></i><span>Wishlist</span></a>
+    <a href="order-tracking.html" class="sidebar-link"><i class="bi bi-geo-alt"></i><span>Track Order</span></a>
+    <div class="sidebar-divider"></div>
+    <a href="edit-profile.html" class="sidebar-link"><i class="bi bi-person"></i><span>Personal Info</span></a>
+    <a href="address.html" class="sidebar-link"><i class="bi bi-house-door"></i><span>Addresses</span></a>
+    <a href="checkout.html" class="sidebar-link"><i class="bi bi-credit-card"></i><span>Payment Methods</span></a>
+    <a href="reviews.html" class="sidebar-link"><i class="bi bi-star"></i><span>Reviews</span></a>
+    <a href="faqs.html" class="sidebar-link"><i class="bi bi-question-circle"></i><span>FAQs</span></a>
+    <div class="sidebar-divider"></div>
+    <a href="signup.html" class="sidebar-link sidebar-link-danger"><i class="bi bi-box-arrow-right"></i><span>Sign In / Sign Up</span></a>
+  </nav>
+</div>
+
+<div class="page-wrap">
+  <!-- Category Filter -->
+  <div class="categories-scroll fade-up" style="margin-bottom:24px;">
+    <div class="cat-chip active" data-cat="all"><img src="./assets/images/all.jpg" alt="">All</div>
+    <div class="cat-chip" data-cat="burger"><img src="./assets/images/Burger.avif" alt="">Burger</div>
+    <div class="cat-chip" data-cat="pizza"><img src="./assets/images/Pizza.jpg" alt="">Pizza</div>
+    <div class="cat-chip" data-cat="pasta"><img src="./assets/images/pasta.webp" alt="">Pasta</div>
+    <div class="cat-chip" data-cat="hotdog"><img src="./assets/images/Hotdog.jpg" alt="">Hot Dog</div>
+  </div>
+
+  <div class="all-cats-toolbar fade-up delay-1">
+    <div class="result-count" id="resultCount">3 Restaurants</div>
+    <div style="display:flex;gap:8px;">
+      <button class="sort-btn active" data-sort="rating"><i class="bi bi-star"></i> Rating</button>
+      <button class="sort-btn" data-sort="time"><i class="bi bi-clock"></i> Fastest</button>
+    </div>
+  </div>
+
+  <div class="restaurants-grid fade-up delay-2" id="allRestGrid">
+    <a href="details.html" class="rest-card" data-cats="burger">
+      <div class="rest-card-img"><img src="./assets/images/Rose Garden Restaurant.jpeg" alt=""><span class="rest-card-badge">🟢 Open</span></div>
+      <div class="rest-card-body">
+        <div class="rest-card-name">Rose Garden Restaurant</div>
+        <div class="rest-card-tags">Burger · Chicken · Wings</div>
+        <div class="rest-card-meta"><span class="rating"><i class="bi bi-star-fill"></i> 4.7</span><span><i class="bi bi-truck"></i> Free</span><span><i class="bi bi-clock"></i> 20 min</span></div>
+      </div>
+    </a>
+    <a href="details.html" class="rest-card" data-cats="pizza pasta">
+      <div class="rest-card-img"><img src="./assets/images/Italiano Pizza House.jpg" alt=""><span class="rest-card-badge">🟢 Open</span></div>
+      <div class="rest-card-body">
+        <div class="rest-card-name">Italiano Pizza House</div>
+        <div class="rest-card-tags">Pizza · Pasta · Drinks</div>
+        <div class="rest-card-meta"><span class="rating"><i class="bi bi-star-fill"></i> 4.5</span><span><i class="bi bi-truck"></i> Free</span><span><i class="bi bi-clock"></i> 25 min</span></div>
+      </div>
+    </a>
+    <a href="details.html" class="rest-card" data-cats="pasta">
+      <div class="rest-card-img"><img src="./assets/images/Pasta House.jpeg" alt=""><span class="rest-card-badge">🟢 Open</span></div>
+      <div class="rest-card-body">
+        <div class="rest-card-name">Pasta House</div>
+        <div class="rest-card-tags">Pasta · Alfredo · Italian</div>
+        <div class="rest-card-meta"><span class="rating"><i class="bi bi-star-fill"></i> 4.8</span><span><i class="bi bi-truck"></i> Free</span><span><i class="bi bi-clock"></i> 22 min</span></div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+<script src="./assets/js/global.js"></script>
+<script src="./assets/js/sidebar.js"></script>
+<script src="./assets/js/all-categories.js"></script>
+<nav class="bottom-nav" style="display:none;">
+  <a href="index.html"><i class="bi bi-house"></i>Home</a>
+  <a href="all-categories.html"><i class="bi bi-grid-3x3-gap"></i>Menu</a>
+  <a href="offers.html"><i class="bi bi-tag"></i>Offers</a>
+  <a href="cart.html"><i class="bi bi-bag"></i>Cart<span class="bnav-badge cart-badge" style="display:none;">0</span></a>
+  <a href="menu.html"><i class="bi bi-person"></i>Profile</a>
+</nav>
+</body>
+</html>

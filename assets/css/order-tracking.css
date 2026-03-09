@@ -1,0 +1,117 @@
+/* ── Order Tracking ─────────────────────────────────────── */
+.order-id-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+.order-id-label { font-size: 12px; color: var(--text-tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.order-id-num   { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--text-primary); margin-top: 2px; }
+.eta-label { font-size: 12px; color: var(--text-tertiary); font-weight: 600; text-align: right; text-transform: uppercase; letter-spacing: 0.06em; }
+.eta-time  { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--brand); text-align: right; margin-top: 2px; }
+
+.map-placeholder {
+  background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 28px;
+  overflow: hidden;
+  position: relative;
+}
+.map-inner { text-align: center; }
+.map-pulse {
+  width: 60px; height: 60px;
+  background: var(--brand-soft);
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  position: relative;
+  animation: pulse 2s infinite;
+}
+.map-pulse::after {
+  content: '📍';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--brand-glow); }
+  50%       { box-shadow: 0 0 0 20px transparent; }
+}
+.map-label { font-size: 14px; font-weight: 600; color: var(--text-secondary); }
+
+/* Steps */
+.tracking-steps {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 28px 24px;
+  margin-bottom: 20px;
+}
+.step {
+  display: flex; align-items: center; gap: 16px;
+}
+.step-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--text-tertiary);
+  transition: all var(--transition);
+}
+.step.completed .step-icon { background: var(--success); border-color: var(--success); color: #fff; }
+.step.active    .step-icon { background: var(--brand); border-color: var(--brand); color: #fff; }
+.pulse-icon { animation: iconPulse 1.5s infinite; }
+@keyframes iconPulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--brand-glow); }
+  50%       { box-shadow: 0 0 0 10px transparent; }
+}
+.step-title { font-weight: 600; font-size: 15px; color: var(--text-primary); }
+.step-time  { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+
+.step-line {
+  width: 2px; height: 32px; margin-left: 21px;
+  background: var(--border);
+  border-radius: 99px;
+}
+.step-line.completed { background: var(--success); }
+
+/* Summary */
+.tracking-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.tracking-item {
+  display: flex; justify-content: space-between;
+  font-size: 14px; color: var(--text-secondary);
+  padding: 8px 0;
+}
+.tracking-divider { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+
+/* Driver Card */
+.driver-card {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 20px 24px;
+}
+.driver-avatar { font-size: 44px; }
+.driver-name { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--text-primary); }
+.driver-sub  { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+
+/* ── Order Tracking Responsive ───────────────────────────── */
+@media (max-width: 479px) {
+  .order-id-banner { flex-direction: column; gap: 12px; }
+  .eta-label, .eta-time { text-align: left; }
+  .map-placeholder { height: 160px; }
+  .driver-card { flex-wrap: wrap; }
+  .tracking-summary { padding: 16px; }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classic Beef Burger — Burgerizza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="./assets/css/details.css">
+</head>
+<body>
+<header class="bzr-header">
+  <div class="container">
+    <a href="index.html" class="icon-btn"><i class="bi bi-arrow-left"></i></a>
+    <span class="bzr-logo" style="flex:1;text-align:center;">Details</span>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <div style="display:flex;gap:8px;align-items:center;"><label class="dark-toggle"><input type="checkbox" id="darkToggle"><div class="dark-toggle-slider"></div></label><button class="icon-btn hamburger-btn" id="sidebarToggle"><i class="bi bi-list"></i></button></div>
+      <a href="cart.html" class="icon-btn" style="position:relative;">
+        <i class="bi bi-bag"></i>
+        <span class="cart-badge badge-brand" style="display:none;position:absolute;top:-6px;right:-6px;">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-profile">
+      <div class="sidebar-avatar">🙂</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-name">John Doe</div>
+        <div class="sidebar-email">john@example.com</div>
+      </div>
+    </div>
+    <button class="icon-btn sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="sidebar-link"><i class="bi bi-house"></i><span>Home</span></a>
+    <a href="all-categories.html" class="sidebar-link"><i class="bi bi-grid-3x3-gap"></i><span>Browse Menu</span></a>
+    <a href="offers.html" class="sidebar-link"><i class="bi bi-tag"></i><span>Offers \&amp; Deals</span><span class="sidebar-badge">4</span></a>
+    <a href="order-history.html" class="sidebar-link"><i class="bi bi-clock-history"></i><span>My Orders</span></a>
+    <a href="wishlist.html" class="sidebar-link"><i class="bi bi-heart"></i><span>Wishlist</span></a>
+    <a href="order-tracking.html" class="sidebar-link"><i class="bi bi-geo-alt"></i><span>Track Order</span></a>
+    <div class="sidebar-divider"></div>
+    <a href="edit-profile.html" class="sidebar-link"><i class="bi bi-person"></i><span>Personal Info</span></a>
+    <a href="address.html" class="sidebar-link"><i class="bi bi-house-door"></i><span>Addresses</span></a>
+    <a href="checkout.html" class="sidebar-link"><i class="bi bi-credit-card"></i><span>Payment Methods</span></a>
+    <a href="reviews.html" class="sidebar-link"><i class="bi bi-star"></i><span>Reviews</span></a>
+    <a href="faqs.html" class="sidebar-link"><i class="bi bi-question-circle"></i><span>FAQs</span></a>
+    <div class="sidebar-divider"></div>
+    <a href="signup.html" class="sidebar-link sidebar-link-danger"><i class="bi bi-box-arrow-right"></i><span>Sign In / Sign Up</span></a>
+  </nav>
+</div>
+
+<div class="page-wrap">
+  <div class="details-layout">
+
+    <!-- Image Panel -->
+    <div class="details-img-panel">
+      <div class="details-img-wrap">
+        <img src="./assets/images/Burger.jpg" alt="Classic Beef Burger" id="mainImg">
+        <button class="wishlist-btn" id="wishlistBtn" title="Add to wishlist">
+          <i class="bi bi-heart"></i>
+        </button>
+      </div>
+      <!-- Thumbnail row -->
+      <div class="thumb-row">
+        <img src="./assets/images/Burger.jpg" alt="" class="thumb active" onclick="swapImg(this)">
+        <img src="./assets/images/Burger.avif" alt="" class="thumb" onclick="swapImg(this)">
+      </div>
+    </div>
+
+    <!-- Info Panel -->
+    <div class="details-info">
+      <div class="details-tag">🍔 Burger</div>
+      <h1 class="details-name">Classic Beef Burger</h1>
+      <p class="details-desc">Juicy beef patty, fresh lettuce, ripe tomatoes, and our secret sauce — all nestled in a warm brioche bun.</p>
+
+      <!-- Stats -->
+      <div class="details-stats">
+        <div class="stat-pill"><i class="bi bi-star-fill" style="color:var(--warning);"></i> 4.9</div>
+        <div class="stat-pill"><i class="bi bi-truck" style="color:var(--success);"></i> Free Delivery</div>
+        <div class="stat-pill"><i class="bi bi-clock"></i> 20 min</div>
+      </div>
+
+      <!-- Size Selector -->
+      <div class="details-section">
+        <div class="details-section-label">Choose Size</div>
+        <div class="size-group">
+          <button class="size-btn" data-size="Small" data-price="5">Small<br><span>$5</span></button>
+          <button class="size-btn" data-size="Medium" data-price="10">Medium<br><span>$10</span></button>
+          <button class="size-btn active-size" data-size="Large" data-price="15">Large<br><span>$15</span></button>
+        </div>
+      </div>
+
+      <!-- Ingredients -->
+      <div class="details-section">
+        <div class="details-section-label">Ingredients</div>
+        <div class="ingredients-group">
+          <span class="ingredient-tag">🥩 Beef</span>
+          <span class="ingredient-tag">🥬 Lettuce</span>
+          <span class="ingredient-tag">🍅 Tomatoes</span>
+          <span class="ingredient-tag">🧀 Cheese</span>
+          <span class="ingredient-tag">🧅 Onions</span>
+        </div>
+      </div>
+
+      <!-- Quantity + Price -->
+      <div class="details-bottom">
+        <div class="qty-control" style="border-color:var(--border);border-width:1.5px;">
+          <button class="qty-btn" id="minusBtn">−</button>
+          <span class="qty-num" id="qtyDisplay">1</span>
+          <button class="qty-btn" id="plusBtn">+</button>
+        </div>
+        <div class="details-price">
+          Total: <span id="totalPrice">$15</span>
+        </div>
+      </div>
+
+      <button class="btn-brand w-full" id="addToCartBtn" style="margin-top:20px;padding:15px;font-size:16px;">
+        <i class="bi bi-bag-plus"></i> Add to Cart
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast-container"></div>
+<script src="./assets/js/global.js"></script>
+<script src="./assets/js/details.js"></script>
+<nav class="bottom-nav" style="display:none;">
+  <a href="index.html"><i class="bi bi-house"></i>Home</a>
+  <a href="all-categories.html"><i class="bi bi-grid-3x3-gap"></i>Menu</a>
+  <a href="offers.html"><i class="bi bi-tag"></i>Offers</a>
+  <a href="cart.html"><i class="bi bi-bag"></i>Cart<span class="bnav-badge cart-badge" style="display:none;">0</span></a>
+  <a href="menu.html"><i class="bi bi-person"></i>Profile</a>
+</nav>
+</body>
+</html>
